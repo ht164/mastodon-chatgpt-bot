@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  bot:
+    build: .
+    image: ht164/mastodon-chatgpt-bot
+    restart: always
+    env_file: .env
+    volumes:
+      - ./db:/opt/bot/db
+  

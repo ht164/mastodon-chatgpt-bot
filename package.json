@@ -1,0 +1,19 @@
+{
+  "name": "mastodon-chatgpt-bot",
+  "version": "1.0.0",
+  "description": "Mastodon Bot using ChatGPT",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ht164",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mastodon-api-v1": "^1.1.1",
+    "openai": "^3.2.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.4"
+  }
+}
