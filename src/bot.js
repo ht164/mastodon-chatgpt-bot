@@ -83,7 +83,7 @@ class Bot {
             // get parent status.
             if (status.in_reply_to_id !== null) {
                 const parentStatus = await this.m.apis.status.get(status.in_reply_to_id);
-                innerGetReplyHistory(parentStatus.data, count + 1);
+                await innerGetReplyHistory(parentStatus.data, count + 1);
             }
         };
 
@@ -95,6 +95,8 @@ class Bot {
     async generateReply(messages) {
         // generate reply using ChatGPT API.
         messages.unshift({ "role": "system", "content": process.env.CHATGPT_SYSTEM_CONTENT });
+        console.debug("Post data to ChatGPT API:");
+        console.debug(messages);
         const completion = await this.openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: messages,
