@@ -35,6 +35,12 @@ class Bot {
 
             console.log("Recognized mentioned message (id: " + msg.data.status.id + ").");
 
+            // not reply if message sender is a bot.
+            if (msg.data.account.bot) {
+                console.log("Not reply because message sender is a bot.");
+                return;
+            }
+
             // check whether tokens reach a limit.
             const _now = new Date();
             const startDate = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
